@@ -29,9 +29,9 @@ module.exports = (env) => {
   console.log('API %s', API);
 
   const devServer = {
-    host: '0.0.0.0',
+    host: 'localhost',
     // host: 'localhost',
-    port: 8088,
+    port: 8080,
     contentBase: root('dist'),
     historyApiFallback: true,
     compress: true,
@@ -44,7 +44,7 @@ module.exports = (env) => {
   if (API === 'mock' || API === 'dev') {
     devServer.proxy = {
       '/api': {
-        target: 'http://localhost',
+        target: 'https://192.168.187.40:8080',
         changeOrigin: true,
         secure: false,
         headers: {
